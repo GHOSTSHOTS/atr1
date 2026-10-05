@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فرهنگ و هنر</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:Tahoma,sans-serif; -webkit-tap-highlight-color:transparent; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    padding-bottom: 80px;
+    background: linear-gradient(135deg,#1a0f2e,#2d1b4e,#4a2c5e,#6b3d5c);
+  }
+
+  /* ==================== استایل فرهنگ و هنر ==================== */
+  .culture-page-container {
+    width: min(92vw, 900px);
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .culture-header {
+    background: rgba(255,255,255,0.08);
+    border-radius: 15px;
+    padding: 12px 18px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,220,200,0.25);
+    text-align: center;
+  }
+  .culture-header h2 {
+    color: #fff8f0;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .culture-card {
+    background: rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-radius: 2.8rem 1.2rem 2.8rem 1.2rem;
+    box-shadow:
+      0 25px 60px -20px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba(255, 220, 200, 0.25) inset,
+      0 0 0 2px rgba(255, 180, 220, 0.12) inset,
+      0 0 80px rgba(255, 180, 220, 0.15);
+    padding: clamp(1.6rem, 4vw, 2.8rem) clamp(1.2rem, 3vw, 2rem) clamp(1.2rem, 3vw, 2rem);
+    position: relative;
+    border: 1px solid rgba(255, 220, 200, 0.28);
+    animation: cardPulse 6s ease-in-out infinite;
+    color: #f5e8d8;
+  }
+
+  @keyframes cardPulse {
+    0%, 100% {
+      box-shadow:
+        0 25px 60px -20px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 220, 200, 0.25) inset,
+        0 0 0 2px rgba(255, 180, 220, 0.12) inset,
+        0 0 80px rgba(255, 180, 220, 0.15);
+    }
+    50% {
+      box-shadow:
+        0 25px 70px -18px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 230, 210, 0.35) inset,
+        0 0 0 2px rgba(255, 200, 230, 0.2) inset,
+        0 0 100px rgba(255, 200, 230, 0.25);
+    }
+  }
+
+  .culture-card::before {
+    content: '✦ ✦ ✦';
+    position: absolute;
+    top: clamp(-1.1rem, -2vw, -0.7rem);
+    right: clamp(1rem, 4vw, 2.5rem);
+    background: linear-gradient(135deg, rgba(255, 200, 220, 0.9), rgba(200, 180, 255, 0.9));
+    color: #2d1b4e;
+    font-size: clamp(0.55rem, 1.2vw, 0.8rem);
+    letter-spacing: clamp(2px, 0.8vw, 6px);
+    padding: 0.2rem 0.9rem 0.15rem 0.6rem;
+    border-radius: 40px;
+    box-shadow: 0 6px 16px rgba(255, 180, 220, 0.5), 0 0 20px rgba(255, 200, 230, 0.6);
+    direction: ltr;
+    white-space: nowrap;
+    animation: badgeGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes badgeGlow {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.25); }
+  }
+
+  .culture-card::after {
+    content: '◈';
+    position: absolute;
+    bottom: clamp(-1.2rem, -2.5vw, -0.8rem);
+    left: clamp(1rem, 4vw, 2.5rem);
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
+    color: rgba(255, 200, 220, 0.7);
+    transform: rotate(15deg);
+    text-shadow: 0 0 20px rgba(255, 180, 220, 0.8);
+    line-height: 1;
+    animation: rotateDiamond 6s ease-in-out infinite;
+  }
+
+  @keyframes rotateDiamond {
+    0%, 100% { transform: rotate(15deg) scale(1); }
+    50% { transform: rotate(75deg) scale(1.15); }
+  }
+
+  .culture-title {
+    font-size: clamp(1.4rem, 4.5vw, 2.5rem);
+    font-weight: 700;
+    color: #fff8f0;
+    margin-bottom: clamp(1.2rem, 3.2vw, 2rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 20px rgba(255, 200, 220, 0.6), 0 2px 4px rgba(0, 0, 0, 0.4);
+    border-bottom: 2px dashed rgba(255, 200, 220, 0.4);
+    padding-bottom: clamp(0.9rem, 2.3vw, 1.4rem);
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .culture-title span {
+    background: linear-gradient(135deg, #ffb8d8, #d4a8ff, #ffd4a8);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(1.8rem, 5.5vw, 3.2rem);
+    line-height: 1;
+    animation: gradientText 4s ease infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 180, 220, 0.7));
+  }
+
+  @keyframes gradientText {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .culture-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(0.9rem, 2.3vw, 1.4rem);
+  }
+
+  @media (min-width: 560px) {
+    .culture-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .culture-concept {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1.9rem 0.6rem 1.9rem 0.6rem;
+    padding: clamp(0.9rem, 2.3vw, 1.4rem);
+    box-shadow:
+      0 10px 25px -12px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 220, 200, 0.2) inset,
+      0 0 30px rgba(255, 180, 220, 0.08);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    border: 1px solid rgba(255, 220, 200, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .culture-concept::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      rgba(255, 180, 220, 0.15) 60deg,
+      transparent 120deg,
+      rgba(180, 200, 255, 0.12) 200deg,
+      transparent 260deg,
+      rgba(255, 220, 180, 0.15) 320deg,
+      transparent 360deg
+    );
+    animation: rotateGlow 8s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .culture-concept > * { position: relative; z-index: 1; }
+
+  @keyframes rotateGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .culture-concept:hover {
+      transform: translateY(-6px) scale(1.02);
+      background: rgba(255, 255, 255, 0.13);
+      box-shadow:
+        0 20px 40px -14px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 230, 210, 0.4) inset,
+        0 0 50px rgba(255, 200, 230, 0.3);
+    }
+    .culture-concept:hover .culture-icon {
+      transform: scale(1.2) rotate(-8deg);
+      filter: drop-shadow(0 0 20px rgba(255, 200, 230, 0.9));
+    }
+  }
+
+  .culture-icon {
+    font-size: clamp(1.6rem, 4.2vw, 2.8rem);
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 0 15px rgba(255, 200, 220, 0.6));
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    line-height: 1;
+    align-self: flex-start;
+    animation: iconFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .culture-concept h2 {
+    font-size: clamp(1.2rem, 3.2vw, 1.9rem);
+    font-weight: 700;
+    color: #fff8f0;
+    margin-bottom: clamp(0.6rem, 1.6vw, 0.9rem);
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    border-right: 5px solid;
+    border-image: linear-gradient(180deg, #ffb8d8, #d4a8ff) 1;
+    padding-right: 0.8rem;
+    line-height: 1.3;
+    flex-wrap: wrap;
+    text-shadow: 0 0 15px rgba(255, 200, 220, 0.5);
+  }
+
+  .culture-concept h2 small {
+    font-size: clamp(0.72rem, 1.6vw, 1rem);
+    font-weight: 400;
+    color: rgba(255, 220, 240, 0.75);
+  }
+
+  .culture-highlight {
+    background: linear-gradient(135deg, rgba(255, 180, 220, 0.12), rgba(180, 200, 255, 0.1));
+    border-radius: 1rem 0.3rem 1rem 0.3rem;
+    padding: clamp(0.9rem, 2.3vw, 1.4rem);
+    margin: 0.9rem 0;
+    border-right: 5px solid #ffb8d8;
+    box-shadow: 0 4px 20px rgba(255, 180, 220, 0.15), 0 0 0 1px rgba(255, 200, 230, 0.15) inset;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .culture-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 220, 240, 0.08));
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { transform: translateX(0); opacity: 0.4; }
+    50% { transform: translateX(-30%); opacity: 1; }
+  }
+
+  .culture-highlight p {
+    font-size: clamp(0.88rem, 1.9vw, 1.12rem);
+    color: #fff0e8;
+    font-weight: 500;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    line-height: 1.75;
+    gap: 0.25rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .culture-highlight p strong {
+    color: #2d1b4e;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffd4e8, #e0c4ff);
+    padding: 0.15rem 0.7rem;
+    border-radius: 30px;
+    font-size: clamp(0.7rem, 1.4vw, 0.92rem);
+    white-space: nowrap;
+    line-height: 1.8;
+    box-shadow: 0 0 15px rgba(255, 200, 230, 0.5);
+  }
+
+  .culture-features {
+    list-style: none;
+    margin-top: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .culture-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: clamp(0.88rem, 1.9vw, 1.12rem);
+    color: #f0e0d0;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.9rem 1.2rem 0.9rem 0.9rem;
+    border-radius: 0 1.9rem 1.9rem 0;
+    border-left: 3px solid;
+    border-image: linear-gradient(180deg, #d4a8ff, #ffb8d8) 1;
+    transition: all 0.3s;
+    line-height: 1.7;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .culture-features li:hover {
+      background: rgba(255, 255, 255, 0.12);
+      padding-right: 1.6rem;
+      transform: translateX(-4px);
+    }
+  }
+
+  .culture-features li::before {
+    content: '🌿';
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    filter: drop-shadow(0 0 8px rgba(180, 255, 200, 0.7));
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    line-height: 1;
+  }
+
+  .culture-concept.art .culture-features li::before {
+    content: '🎨';
+    filter: drop-shadow(0 0 8px rgba(255, 180, 220, 0.8));
+  }
+
+  .culture-concept.art .culture-highlight {
+    border-right-color: #d4a8ff;
+    background: linear-gradient(135deg, rgba(180, 200, 255, 0.12), rgba(255, 180, 220, 0.1));
+  }
+
+  .culture-quote {
+    margin-top: clamp(1.2rem, 3.2vw, 2rem);
+    text-align: center;
+    padding: clamp(0.9rem, 2.3vw, 1.4rem) 0 0.5rem;
+    border-top: 2px dashed rgba(255, 200, 220, 0.4);
+    color: #ffe8d8;
+    font-size: clamp(0.85rem, 1.8vw, 1.12rem);
+    font-weight: 400;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    line-height: 1.7;
+    text-shadow: 0 0 15px rgba(255, 200, 220, 0.5);
+  }
+
+  .culture-quote span {
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    color: #ffb8d8;
+    line-height: 1;
+    filter: drop-shadow(0 0 12px rgba(255, 180, 220, 0.9));
+    animation: quoteGlow 2.5s ease-in-out infinite;
+  }
+
+  @keyframes quoteGlow {
+    0%, 100% { filter: drop-shadow(0 0 12px rgba(255, 180, 220, 0.9)); }
+    50% { filter: drop-shadow(0 0 20px rgba(255, 200, 240, 1)); }
+  }
+
+  /* پس‌زمینه جادویی */
+  .culture-bg-effects {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .culture-bg-effects::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, rgba(255, 240, 200, 0.9), transparent),
+      radial-gradient(1.5px 1.5px at 40px 70px, rgba(255, 220, 180, 0.8), transparent),
+      radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.9), transparent),
+      radial-gradient(2px 2px at 90px 120px, rgba(255, 200, 220, 0.85), transparent),
+      radial-gradient(1.5px 1.5px at 160px 40px, rgba(200, 220, 255, 0.9), transparent),
+      radial-gradient(1px 1px at 200px 150px, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(2px 2px at 250px 90px, rgba(255, 220, 180, 0.85), transparent),
+      radial-gradient(1px 1px at 300px 180px, rgba(255, 240, 200, 0.9), transparent);
+    background-size: 350px 220px;
+    animation: twinkle 4s ease-in-out infinite alternate;
+    opacity: 0.8;
+  }
+
+  @keyframes twinkle {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.05); }
+  }
+
+  .culture-glow-orbs {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .culture-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(clamp(50px, 7vw, 90px));
+    opacity: 0.5;
+    animation: orbFloat 20s ease-in-out infinite;
+    width: clamp(200px, 45vw, 500px);
+    height: clamp(200px, 45vw, 500px);
+  }
+
+  .culture-orb:nth-child(1) {
+    background: radial-gradient(circle, rgba(255, 140, 200, 0.6), transparent 70%);
+    top: -10%; right: -10%;
+    animation-delay: 0s;
+  }
+  .culture-orb:nth-child(2) {
+    background: radial-gradient(circle, rgba(140, 180, 255, 0.5), transparent 70%);
+    bottom: -15%; left: -15%;
+    animation-delay: 5s;
+  }
+  .culture-orb:nth-child(3) {
+    background: radial-gradient(circle, rgba(255, 200, 140, 0.5), transparent 70%);
+    top: 40%; left: 30%;
+    animation-delay: 10s;
+  }
+
+  @keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -40px) scale(1.15); }
+    66% { transform: translate(-30px, 30px) scale(0.9); }
+  }
+
+  .culture-particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .culture-particle {
+    position: absolute;
+    top: -10%;
+    width: clamp(3px, 0.7vw, 8px);
+    height: clamp(3px, 0.7vw, 8px);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 240, 200, 0.9), rgba(255, 200, 220, 0.3) 60%, transparent);
+    box-shadow: 0 0 12px rgba(255, 220, 180, 0.7), 0 0 24px rgba(255, 180, 220, 0.4);
+    animation: fall linear infinite;
+    opacity: 0;
+  }
+
+  .culture-particle:nth-child(1)  { left: 5%;  animation-duration: 12s; animation-delay: 0s; }
+  .culture-particle:nth-child(2)  { left: 15%; animation-duration: 15s; animation-delay: 2s; }
+  .culture-particle:nth-child(3)  { left: 25%; animation-duration: 10s; animation-delay: 4s; }
+  .culture-particle:nth-child(4)  { left: 35%; animation-duration: 14s; animation-delay: 1s; }
+  .culture-particle:nth-child(5)  { left: 45%; animation-duration: 13s; animation-delay: 3s; }
+  .culture-particle:nth-child(6)  { left: 55%; animation-duration: 16s; animation-delay: 5s; }
+  .culture-particle:nth-child(7)  { left: 65%; animation-duration: 11s; animation-delay: 2.5s; }
+  .culture-particle:nth-child(8)  { left: 75%; animation-duration: 17s; animation-delay: 6s; }
+  .culture-particle:nth-child(9)  { left: 85%; animation-duration: 12s; animation-delay: 1.5s; }
+  .culture-particle:nth-child(10) { left: 92%; animation-duration: 14s; animation-delay: 4.5s; }
+  .culture-particle:nth-child(11) { left: 10%; animation-duration: 18s; animation-delay: 7s; }
+  .culture-particle:nth-child(12) { left: 30%; animation-duration: 11s; animation-delay: 8s; }
+  .culture-particle:nth-child(13) { left: 50%; animation-duration: 15s; animation-delay: 5.5s; }
+  .culture-particle:nth-child(14) { left: 70%; animation-duration: 13s; animation-delay: 9s; }
+  .culture-particle:nth-child(15) { left: 88%; animation-duration: 16s; animation-delay: 3.5s; }
+
+  @keyframes fall {
+    0%   { transform: translateY(0) translateX(0) scale(0); opacity: 0; }
+    10%  { opacity: 1; transform: translateY(10vh) translateX(10px) scale(1); }
+    90%  { opacity: 1; }
+    100% { transform: translateY(110vh) translateX(-20px) scale(0.5); opacity: 0; }
+  }
+
+  /* ==================== فوتر سازنده ==================== */
+  .creator-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 12px 20px;
+    background: rgba(15, 32, 39, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 13px;
+    font-family: Tahoma, sans-serif;
+    border-top: 2px solid rgba(124, 58, 237, 0.4);
+    z-index: 9998;
+    direction: rtl;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  }
+  .creator-footer .label {
+    opacity: 0.8;
+    margin: 0 4px;
+  }
+  .creator-footer .name {
+    font-weight: bold;
+    background: linear-gradient(135deg, #a78bfa, #7c3aed, #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 15px;
+    margin: 0 4px;
+    letter-spacing: 0.5px;
+    animation: creatorGlow 2s ease-in-out infinite;
+  }
+  @keyframes creatorGlow {
+    0%, 100% { filter: drop-shadow(0 0 3px rgba(167, 139, 250, 0.4)); }
+    50% { filter: drop-shadow(0 0 12px rgba(167, 139, 250, 0.9)); }
+  }
+
+  /* ============================================================
+     📱 بهینه‌سازی موبایل
+     ============================================================ */
+  @media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    .culture-bg-effects,
+    .culture-glow-orbs,
+    .culture-particles {
+      display: none !important;
+    }
+
+    .culture-card,
+    .culture-concept {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    .culture-card {
+      background: rgba(45, 27, 78, 0.88) !important;
+      animation: none !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .culture-concept {
+      background: rgba(45, 27, 78, 0.75) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .culture-concept::before,
+    .culture-highlight::before {
+      display: none !important;
+    }
+
+    .culture-icon,
+    .culture-card::before,
+    .culture-card::after,
+    .culture-title span,
+    .culture-quote span,
+    .creator-footer .name {
+      animation: none !important;
+      filter: none !important;
+      -webkit-filter: none !important;
+    }
+
+    .culture-concept:hover {
+      transform: none !important;
+    }
+
+    .creator-footer {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      background: #0f2027 !important;
+    }
+
+    .culture-features li:hover {
+      transform: none !important;
+      padding-right: 1.2rem !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ پس‌زمینه جادویی ============ -->
+<div class="culture-bg-effects" aria-hidden="true"></div>
+<div class="culture-glow-orbs" aria-hidden="true">
+  <div class="culture-orb"></div>
+  <div class="culture-orb"></div>
+  <div class="culture-orb"></div>
+</div>
+<div class="culture-particles" aria-hidden="true">
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+  <div class="culture-particle"></div>
+</div>
+
+<!-- ============ صفحه فرهنگ و هنر ============ -->
+<div class="culture-page-container">
+  <div class="culture-header">
+    <h2>🎭 فرهنگ و هنر</h2>
+  </div>
+
+  <div class="culture-card">
+    <h1 class="culture-title">
+      <span>🎭</span> فرهنگ و هنر <span>🖌️</span>
+    </h1>
+
+    <div class="culture-grid">
+      <div class="culture-concept culture">
+        <div class="culture-icon">🌍</div>
+        <h2>فرهنگ <small>چیست؟</small></h2>
+        <div class="culture-highlight">
+          <p>
+            <strong>تعریف ساده:</strong>
+            نرم‌افزار زندگی و سبک رفتار، ارزش‌ها، باورها و آداب‌ورسوم یک ملت است.
+          </p>
+        </div>
+        <ul class="culture-features">
+          <li>از نسلی به نسل دیگر منتقل می‌شود.</li>
+          <li>راهکار جامعه برای حل نیازهاست.</li>
+        </ul>
+      </div>
+
+      <div class="culture-concept art">
+        <div class="culture-icon">🎨</div>
+        <h2>هنر <small>چیست؟</small></h2>
+        <div class="culture-highlight">
+          <p>
+            <strong>تعریف ساده:</strong>
+            بیان خلاقانه احساسات، تخیل و تجربه‌های انسان از طریق ابزارهایی مانند نقاشی، موسیقی، سینما و ادبیات است.
+          </p>
+        </div>
+        <ul class="culture-features">
+          <li>هنر مهم‌ترین و زنده‌ترین بخش فرهنگ به شمار می‌رود.</li>
+          <li>عواطف و معنا را منتقل می‌کند.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="culture-quote">
+      <span>«</span> فرهنگ روح یک ملت است و هنر، صدای زنده‌ی آن <span>»</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ فوتر سازنده ============ -->
+<footer class="creator-footer">
+  <span class="label">✨ طراحی و توسعه توسط</span>
+  <span class="name">ایلیا خداپناه</span>
+  <span class="label">💻</span>
+</footer>
+
+<script>
+  /* ============================================================
+     📱 تشخیص موبایل برای بهینه‌سازی
+     ============================================================ */
+  const IS_MOBILE_DEVICE =
+    /Android|iPhone|iPad|iPod|Mobile|Opera Mini/i.test(navigator.userAgent) ||
+    (navigator.maxTouchPoints > 1 && window.innerWidth < 1024);
+
+  if (IS_MOBILE_DEVICE) {
+    document.documentElement.classList.add('mobile-device');
+    document.documentElement.style.scrollBehavior = 'auto';
+  }
+
+  // تغییر پس‌زمینه body بر اساس دستگاه
+  if (IS_MOBILE_DEVICE) {
+    document.body.style.background = 'linear-gradient(135deg, #1a0f2e 0%, #2d1b4e 50%, #4a2c5e 100%)';
+    document.body.style.animation = 'none';
+  } else {
+    // انیمیشن گرادیانت برای دسکتاپ
+    let pos = 0;
+    let dir = 1;
+    setInterval(() => {
+      pos += dir * 0.5;
+      if (pos >= 100) { pos = 100; dir = -1; }
+      if (pos <= 0) { pos = 0; dir = 1; }
+      document.body.style.backgroundPosition = `${pos}% 50%`;
+    }, 100);
+    document.body.style.background = 'linear-gradient(-45deg, #1a0f2e, #2d1b4e, #4a2c5e, #6b3d5c, #8b4a6b)';
+    document.body.style.backgroundSize = '400% 400%';
+    document.body.style.backgroundPosition = '0% 50%';
+  }
+
+  // اسکرول به بالا
+  window.scrollTo({ top: 0, behavior: 'auto' });
+</script>
+</body>
+</html>
